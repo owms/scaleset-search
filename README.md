@@ -12,18 +12,72 @@ Quick Start
 ```xml
 <dependency>
     <groupId>com.scaleset</groupId>
-    <artifactId>scaleset-search</artifactId>
-    <version>0.12.0</version>
+    <artifactId>scaleset-search-api</artifactId>
+    <version>0.22.0</version>
 </dependency>
 ```
 
-### Query
+### Key Concepts
 
+The search model consist of a `Query` object and a `Results` object. 
 
-### Results
+Query object fields:
 
+| Field     | Description |
+|-----------|-------------|
+| q         | lucene compatible query string |
+| fields    | the list of fields to return |
+| offset    | paging offset |
+| limit     | paging limit |
+| headers   | optional request headers |
+| sorts     | result sorting order |
+| filters   | query filters|
+| aggs      | aggregation to return |
 
-### Aggregations
+Results object fields:
+
+| Field     | Description |
+|-----------|-------------|
+| query     |             |
+| totalItems|             |
+| bbox      |             |
+| headers   |             |
+| aggs      |             |
+| items     |             |
+
+JSON Examples
+-----------
+
+### Simple Query and Results
+
+Query
+
+```
+{
+  "q": "firstName: fred",
+  "offset": 0,
+  "limit": 10,
+  "aggs": [
+    {
+      "type": "field",
+      "name": "lastName",
+      "limit": 5,
+      "minCount": 1
+    }
+  ]
+}
+```
+
+Results
+
+```
+{
+  "totalItems": 10,
+  "items": [
+   ]
+}
+```
+
 
 ### License
 
