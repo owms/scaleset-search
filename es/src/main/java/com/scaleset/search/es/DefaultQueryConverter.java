@@ -243,6 +243,7 @@ public class DefaultQueryConverter implements QueryConverter {
         register("geo_bounding_box", new GeoBoundingBoxFilterConverter());
         register("geo_distance", new GeoDistanceFilterConverter());
         register("geo_shape", new GeoShapeFilterConverter());
+        register("geo_shape_circle", new GeoCircleFilterConverter());
         register("geo_polygon", new GeoPolygonFilterConverter());
         register("query", new QueryFilterConverter());
         register("type", new TypeFilterConverter());
